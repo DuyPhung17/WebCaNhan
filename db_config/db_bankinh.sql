@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2020 at 06:22 AM
+-- Generation Time: Nov 21, 2020 at 01:42 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -49,7 +49,7 @@ INSERT INTO `account` (`id`, `name`, `username`, `password`, `admin`, `phone`, `
 (4, 'Nguyễn Ngọc Hoàng', 'hoang', '123', NULL, '0913320382', 'Phú Yên', 'avatar.png'),
 (5, 'Vũ Ngọc Đoàn', 'doan', '123', NULL, '01625320382', 'Nha Trang', 'avatar.png'),
 (6, 'Võ Minh Toàn', 'toan', '123', NULL, '01625320333', 'Quảng Nam', 'avatar.png'),
-(11, 'Phùng Bá Duy', 'duy2', '123', NULL, '0868478729', 'Nha Trang', 'background.jpg'),
+(11, 'Phùng Bá Duy', 'duy2', '123', NULL, '0868478729', 'Nha Trang', 'anhthe.jpg'),
 (15, 'Đỗ Thúy Quỳnh', 'quynh', '123', NULL, '0868478729', 'Phú Yên', 'avatar.png');
 
 -- --------------------------------------------------------
@@ -81,7 +81,6 @@ INSERT INTO `bills` (`id`, `id_customer`, `date_order`, `total`, `status`) VALUE
 (23, 2, '2020-11-11', 9953000, b'1'),
 (26, 11, '2020-11-14', 15836000, b'1'),
 (27, 11, '2020-11-14', 7479000, b'1'),
-(28, 11, '2020-11-14', 8066000, b'0'),
 (29, 11, '2020-11-16', 10630000, b'0'),
 (30, 11, '2020-11-19', 9229000, b'0'),
 (31, 15, '2020-11-20', 9829000, b'0');
@@ -355,7 +354,7 @@ ALTER TABLE `bill_detail`
 -- AUTO_INCREMENT for table `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -367,7 +366,7 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT for table `glasses`
 --
 ALTER TABLE `glasses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- Constraints for dumped tables
