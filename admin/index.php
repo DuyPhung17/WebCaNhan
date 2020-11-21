@@ -82,6 +82,7 @@
                     case 'pu': include('product/update.php');break;
                     case 'b': include('brand/brand.php');break;
                     case 'ba': include('brand/add.php');break;
+                    case 'bu': include('brand/update.php');break;
                     case 'a': include('account/account.php');break;
                     case 'au': include('account/update.php');break;
                     case 'o': include('bills/bills.php');break;

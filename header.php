@@ -91,14 +91,14 @@
 
     <!-- LoginForm -->
     <div class="modal fade" id="login">
-        <div class="modal-dialog">
+        <div class="modal-dialog lgform">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div class="container-fluid">
+                    
                         <div class="row justify-content-center">
-                            <div id="lgform">
+                            
                                 <a href="index.html" data-dismiss="modal"><i class="fa fa-times-circle"></i></a>
-                                <form method="post">
+                                <form method="post" class="col-8">
                                     <div class="text-center">
                                         <img id="logimg" src="./img/logo.png">
                                         
@@ -113,18 +113,14 @@
                                         <label> Mật khẩu</label>
                                         <input type="password" class="form-control" id="pass" name="pwd">
                                     </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                                        <label class="form-check-label text-color">Ghi nhớ đăng nhập</label>
-                                        <a href="#" class="m-5 text-color">Quên mật khẩu</a>
-                                    </div>
+
                                     <p class="text-center mt-2"><i>(Admin: duy-123 &nbsp; || &nbsp; Guest: duy2-123)</i></p>
                                     <button type="submit" name="login" id="loginbtn" class="btn btn-color btn-block mt-3">Đăng Nhập</button>
-                                    <a id="signup" href="register.php" class="btn btn-outline-color btn-block">Đăng Ký</a>
+                                    <a id="signup" href="register.php" class="btn btn-outline-color btn-block mb-2">Đăng Ký</a>
                                 </form>
-                            </div>    
+                              
                         </div> 
-                    </div>
+                    
                 </div>
             </div>
         </div>

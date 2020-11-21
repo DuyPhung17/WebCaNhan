@@ -1,5 +1,18 @@
 <?php 
   require_once('../db_config/db_connect.php');
+  
+  if(isset($_GET['id']))
+  $id = $_GET['id'];
+
+  require_once('../db_config/db_connect.php');
+  $sql_brand = 'SELECT * FROM brand WHERE id = '.$id;
+  $result_brand = mysqli_query($conn, $sql_brand);
+  $row = mysqli_fetch_array($result_brand);
+
+  $name = $row['name'];
+  $country = $row['country'];
+  $img = $row['image'];
+
   $errName = $errCountry = $errImg = "";
   if(isset($_POST['submit']))
   {
@@ -32,17 +45,16 @@
     //add new
     if(empty($errName) && empty($errCountry))
     {
-      if(empty($img)) $img = "noimg.png";
       $sql = 'insert into brand(name,image,country)
               values("'.$name.'","'.$img.'","'.$country.'")';
       $result = mysqli_query($conn, $sql);
-      echo '<script type="text/javascript">swal("Thêm thành công!", "Thương hiệu mới: '.$name.'", "success");</script>';
+      echo '<script type="text/javascript">swal("Cập nhật thành công!", "Thương hiệu: '.$name.'", "success");</script>';
     }
   }
 
 ?>
 <div class="mt-4">
-    <h3 class=" text-center mb-4">- Thêm thương hiệu -</h3>
+    <h3 class=" text-center mb-4">- Cập nhật thương hiệu -</h3>
 
     <form action="" method="post" enctype="multipart/form-data" style="width:50%;margin-left:20%">
     
@@ -99,13 +111,13 @@
         ?>
         <div class="row">
           <div class="col-sm-4"></div>
-          <div class="col-sm-8"><img id="img_prv"></div>
+          <div class="col-sm-8"><img id="img_prv" <?php if(isset($img)) echo 'src="../img/'.$img.'"' ?> ></div>
         </div>
         
         <div class="form-group row">
         <p class="col-sm-4"></p>
           <div class="col-sm-8 pl-0 pt-3">
-            <input class="btn btn-color" type="submit" name="submit" value="Thêm">
+            <input class="btn btn-color" type="submit" name="submit" value="Cập nhật">
             <button class="btn btn-secondary" type="reset">Đặt lại</button>
             <a href="index.php?page=b&pg=1" class="btn btn-danger">Trở Về</a>
           </div>

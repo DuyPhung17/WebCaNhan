@@ -32,12 +32,14 @@ body{
 .avt{
     height: 40px !important;
     width: 40px !important;
+    object-fit: cover;
     margin-right: 10px;
     border-radius: 50%;
 }
 .avt_user{
     height: 50px !important;
     width: 50px !important;
+    object-fit: cover;
     border-radius: 50%;
     background-color: #203864 !important;
 }

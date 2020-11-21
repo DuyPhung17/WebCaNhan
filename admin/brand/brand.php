@@ -12,9 +12,7 @@
         $current_Page = $_GET['pg'];//Trang hien tai
     $index = ($current_Page - 1)*$product_perPage; //Vi tri bat dau lay trong $sql LIMIT
 
-    $sql = 'SELECT  brand.name as "bname", country, brand.image as "bimage" , COUNT(glasses.id) as "qty"
-                    FROM glasses JOIN brand WHERE glasses.id_brand = brand.id 
-                    GROUP BY id_brand, bname, bimage, country limit '.$index.', '.$product_perPage.'';
+    $sql = 'SELECT * FROM brand limit '.$index.', '.$product_perPage.'';
     $result = mysqli_query($conn,$sql);
 
     //tim kiem
@@ -31,11 +29,7 @@
             $current_Page = $_GET['pg'];//Trang hien tai
         $index = ($current_Page - 1)*$product_perPage; //Vi tri bat dau lay trong $sql LIMIT
 
-        $sql = 'SELECT  brand.name as "bname", country, brand.image as "bimage" , COUNT(glasses.id) as "qty"
-        FROM glasses JOIN brand WHERE glasses.id_brand = brand.id 
-        and brand.name like "%'.$s.'%" 
-        GROUP BY id_brand, bname, bimage, country
-        limit '.$index.', '.$product_perPage.'';
+        $sql = 'SELECT * FROM brand where name like "%'.$s.'%" limit '.$index.', '.$product_perPage.'';
         $result = mysqli_query($conn,$sql);
     }
 ?>
@@ -65,7 +59,6 @@
                 <th>Thương hiệu</th>
                 <th>Logo</th>
                 <th>Xuất xứ</th>
-                <th>SL sản phẩm</th>
                 <th colspan="2"></th>
             </tr>
         </thead>
@@ -76,13 +69,12 @@
                 echo '
                 <tr>
                     <td>'.$i++.'</td>
-                    <td>'.$row['bname'].'</td>
-                    <td><img src="../img/'.$row['bimage'].'"/></td>
+                    <td>'.$row['name'].'</td>
+                    <td><img src="../img/'.$row['image'].'"/></td>
                     <td>'.$row['country'].'</td>
-                    <td>'.$row['qty'].'</td>
                     <td>
-                        <a class="btn btn-sm btn-secondary" href="#">Cập nhật</a>
-                        <a class="btn btn-sm btn-danger" href="#">Xóa</a>
+                        <a class="btn btn-sm btn-secondary" href="index.php?page=bu&id='.$row['id'].'">Cập nhật</a>
+                        <a class="btn btn-sm btn-danger" href="brand/delete.php?id='.$row['id'].'">Xóa</a>
                     </td>
                 </tr>
                 ';

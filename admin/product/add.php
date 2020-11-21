@@ -31,7 +31,7 @@
       elseif(!is_numeric($normal_price))
         $errNormal_price = "Chỉ cho phép nhập số";
       if(isset($sale_price))  
-      if($sale_price=="" && $normal_price < $sale_price)
+      if($sale_price!="" && $normal_price < $sale_price)
         $errNormal_price = "Đơn giá phải lớn hơn giá khuyến mãi!";
     }
     //Kiem Tra sale_price
@@ -40,7 +40,8 @@
       $sale_price = $_POST['sale_price'];
       if(!is_numeric($sale_price) && $sale_price!="")
         $errSale_price = "Chỉ cho phép nhập số";
-      if($normal_price=="" && $sale_price < $normal_price)
+      if(isset($normal_price))
+      if($normal_price!="" && $sale_price > $normal_price)
         $errSale_price = "giá khuyến mãi phải nhỏ hơn đơn giá!";
     }
     //Kiem Tra img
@@ -54,6 +55,8 @@
     //add new
     if(empty($errName) && empty($errBrand) && empty($errNormal_price) && empty($errSale_price))
     {
+      if(empty($sale_price)) $sale_price = "NULL";
+      if(empty($img)) $img = "noimg.png";
       $sql = 'insert into glasses(name,id_brand,image,normal_price,sale_price)
               values("'.$name.'",'.$brand.',"'.$img.'",'.$normal_price.','.$sale_price.')';
       $result = mysqli_query($conn, $sql);
@@ -86,7 +89,11 @@
             <option value="">Chọn thương hiệu</option>
             <?php 
               while($row = mysqli_fetch_array($result_brand))
-                echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
+              {
+                echo '<option value="'.$row['id'].'"';
+                  if(isset($brand) && $brand == $row['id']) echo ' selected';
+                echo '>'.$row['name'].'</option>';
+              }
             ?>
           </select>
         </div>

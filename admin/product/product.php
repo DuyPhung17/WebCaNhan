@@ -33,7 +33,7 @@
 
         $sql = 'Select glasses.id as gid, glasses.name as gname, glasses.image as gimage, normal_price, sale_price, brand.image as bimage
         from glasses join brand on glasses.id_brand = brand.id 
-        where glasses.name like "%'.$s.'%" limit '.$index.', '.$product_perPage.'';
+        where glasses.name like "%'.$s.'%" or brand.name like "%'.$s.'%" limit '.$index.', '.$product_perPage.'';
         $result = mysqli_query($conn,$sql);
     }
 

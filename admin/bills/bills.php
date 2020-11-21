@@ -52,9 +52,9 @@
                         <td>
                             <a class="btn btn-sm btn-secondary" href="index.php?page=od&id='.$row['id'].'&pg=1">Xem</a>';
                             if($row['status']==1)
-                                echo'<a class="btn btn-sm btn-dark" href="bills/checkstt.php?id='.$row['id'].'&stt=1">Hủy</a>';
-                            else echo '<a class="btn btn-sm btn-color" href="bills/checkstt.php?id='.$row['id'].'&stt=0">Duyệt</a>';
-                        echo '<a class="btn btn-sm btn-danger" href="#">Xóa</a>
+                                echo'<a class="btn btn-sm btn-dark ml-1" href="bills/checkstt.php?id='.$row['id'].'&stt=1">Hủy</a>';
+                            else echo '<a class="btn btn-sm btn-color ml-1" href="bills/checkstt.php?id='.$row['id'].'&stt=0">Duyệt</a>';
+                        echo '<a class="btn btn-sm btn-danger ml-1" href="bills/delete.php?id='.$row['id'].'">Xóa</a>
                         </td>
                     </tr>';
                 }

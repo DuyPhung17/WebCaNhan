@@ -87,7 +87,7 @@
                         <td>
                             <a class="btn btn-sm btn-secondary" href="index.php?page=au&id='.$row['id'].'">Cập nhật</a>';
                             if($row['admin']!=1)
-                            echo '<a class="btn btn-sm btn-danger" href="account/delete.php?id='.$row['id'].'">Xóa</a>
+                            echo '<a class="btn btn-sm btn-danger ml-1" href="account/delete.php?id='.$row['id'].'">Xóa</a>
                         </td>
                     </tr>';
                 }
